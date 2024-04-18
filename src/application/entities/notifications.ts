@@ -7,6 +7,7 @@ export interface NotificationsProps {
     content: Content;
     category: string;
     readAt?: Date | null;
+    canceledAt?: Date | null;
     createdAt: Date;
 }
 
@@ -19,8 +20,8 @@ export class Notification {
         this.props = {
             ...props,
             createdAt: props.createdAt ?? new Date()
-        };
-    }
+    };
+}
 
     public get id() {
         return this._id;
