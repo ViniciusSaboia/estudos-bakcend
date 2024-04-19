@@ -12,6 +12,9 @@ export interface NotificationsProps {
 }
 
 export class Notification {
+    cancel() {
+        throw new Error("Method not implemented.");
+    }
     private _id: string;
     private props: NotificationsProps;
 
@@ -20,8 +23,8 @@ export class Notification {
         this.props = {
             ...props,
             createdAt: props.createdAt ?? new Date()
-    };
-}
+        };
+    }
 
     public get id() {
         return this._id;
@@ -54,6 +57,9 @@ export class Notification {
     }
     public get readAt(): Date | null | undefined {
         return this.props.readAt;
+    }
+    public get canceledAt(): Date | null | undefined {
+        return this.props.canceledAt;
     }
 
     public get createdAt(): Date {
